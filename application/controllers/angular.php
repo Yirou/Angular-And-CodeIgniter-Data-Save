@@ -28,11 +28,26 @@ class Angular extends CI_Controller {
         $city = $request->city;
 
         $id = $this->user_model->addUser($name, $city);
+        $allUSers = $this->user_model->getAll();
+
+        $data = array();
         if ($id) {
-            echo $result = '{"status":"success"}';
+            $data[0]['status'] = "success";
+            $data[0]['users'] = $allUSers;
+            echo $result = json_encode($data);
         } else {
-            echo $result = '{"status":"danger"}';
+            $data[0]['status'] = "danger";
+            $data[0]['users'] = $allUSers;
+            echo $result = json_encode($data);
         }
+    }
+
+    public function getUsers() {
+        $data = array();
+        $this->load->model('user_model');
+        $allUSers = $this->user_model->getAll();
+        $data[0]['users'] = $allUSers;
+        echo json_encode($data);
     }
 
 }
