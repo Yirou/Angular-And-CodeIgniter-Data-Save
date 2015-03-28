@@ -1,0 +1,14 @@
+/system
+/application/cache
+/application/core
+/application/helpers
+/application/hooks
+/application/language
+/application/libraries
+/application/logs
+/application/third_party
+DCO.txt
+composer.json
+contributing.md
+licence.txt
+readme.rst
